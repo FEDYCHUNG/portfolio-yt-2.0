@@ -27,9 +27,9 @@ function Projects({ }: Props) {
                             transition={{ duration: 1.2 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            alt="project" src="/assets/img/project1.webp" className="h-[375px] w-[600px]" />
+                            alt="project" src="/assets/img/project1.webp" className="h-[200px] w-[600px]" />
 
-                        <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
+                        <div className='space-y-2 px-0 md:px-10 max-w-6xl'>
                             <h4 className='text-2xl font-semibold text-center'>
                                 <span className='underline decoration-[#F7AB0A]/50'>
                                     Case Study {i + 1} of {projects.length}:
