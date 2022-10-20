@@ -39,3 +39,7 @@ next-env.d.ts
 *.code-workspace
 *.prettierrc
 *.vscode
+
+#sanity
+/sanity/node_modules
+/sanity/schemas
