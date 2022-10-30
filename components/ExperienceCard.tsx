@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
+import { urlFor } from '../sanity'
+import { Experience } from '../typings'
 
-type Props = {}
+type Props = {
+  experience: Experience
+}
 
-export default function ExperienceCard({ }: Props) {
+export default function ExperienceCard({ experience }: Props) {
   return (
     <article className='flex flex-col rounded-lg items-center space-y-2 flex-shrink-0 w-[500px] 
     md:w-[600px] xl:w-[700px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer
@@ -17,7 +21,7 @@ export default function ExperienceCard({ }: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        src='/assets/img/photo_profile.jpg'
+        src={urlFor(experience?.companyImage).url()}
         className='w-20 h-20 rounded-full md:rounded-full xl:w-32 
         xl:h-32 object-cover object-center'/>
 
@@ -25,18 +29,18 @@ export default function ExperienceCard({ }: Props) {
         <h4 className='text-1xl font-light'>CEO of ...</h4>
         <p className='font-bold text-1xl mt-1'>PAPAFAM</p>
         <div className='flex space-x-2 my-2 '>
-          <div><Image src="/assets/img/js.png" alt="" width={20} height={20} className="rounded-full" /></div>
-          <div><Image src="/assets/img/js.png" alt="" width={20} height={20} className="rounded-full" /></div>
-          <div><Image src="/assets/img/js.png" alt="" width={20} height={20} className="rounded-full" /></div>
+          {experience.technologies?.map(techonology => (
+            <Image key={techonology._id} loader={() => `${urlFor(techonology.image).url()}`} src={urlFor(techonology.image).url()} alt="" width={20} height={20} className="rounded-full" />
+          ))}
         </div>
-        <p className='uppercase py-1 text-gray-300 text-sm'>Started work.. - Ended...</p>
+        <p className='uppercase py-1 text-gray-300 text-sm'>{new Date(experience.dateStarted).toDateString()} - {" "}
+          {experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
+        </p>
 
         <ul className='list-disc space-y-1 ml-5 text-sm'>
-          <li>Summary Point Summary Point Summary Point Summary Point Summary Point</li>
-          <li>Summary Point Summary Point Summary Point Summary Point Summary Point</li>
-          <li>Summary Point Summary Point Summary Point Summary Point Summary Point</li>
-          <li>Summary Point Summary Point Summary Point Summary Point Summary Point</li>
-          <li>Summary Point Summary Point Summary Point Summary Point Summary Point</li>
+          {experience.points.map(point => (
+            <li key={point}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>
