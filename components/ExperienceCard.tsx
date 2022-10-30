@@ -37,9 +37,9 @@ export default function ExperienceCard({ experience }: Props) {
           {experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
         </p>
 
-        <ul className='list-disc space-y-1 ml-5 text-sm'>
-          {experience.points.map(point => (
-            <li key={point}>{point}</li>
+        <ul className='list-disc space-y-1 ml-5 text-sm h-52 scrollbar-thin overflow-scroll scrollbar-track-black  scrollbar-thumb-[#F7AB0A]/80'>
+          {experience.points.map((point, i) => (
+            <li key={i}>{point}</li>
           ))}
         </ul>
       </div>
