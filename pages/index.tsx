@@ -1,6 +1,5 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import About from "../components/About";
 import ContactMe from "../components/ContactMe";
