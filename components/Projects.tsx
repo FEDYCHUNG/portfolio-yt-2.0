@@ -40,7 +40,7 @@ function Projects({ projects }: Props) {
                             <div className="flex !space-x-2 items-center justify-center">
                                 {project?.technologies.map(techonology => (
                                     <Image key={techonology._id}
-                                        loader={() => `${urlFor(techonology.image).url()}`} src={urlFor(techonology.image).url()}
+                                        loader={() => `${urlFor(techonology.image).url()}`} src={urlFor(techonology.image).url()} unoptimized={true}
                                         alt="" width={20} height={20} />
 
                                 ))}

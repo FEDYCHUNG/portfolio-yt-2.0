@@ -30,7 +30,8 @@ export default function ExperienceCard({ experience }: Props) {
         <p className='font-bold text-1xl mt-1'>PAPAFAM</p>
         <div className='flex space-x-2 my-2 '>
           {experience.technologies?.map(techonology => (
-            <Image key={techonology._id} loader={() => `${urlFor(techonology.image).url()}`} src={urlFor(techonology.image).url()} alt="" width={20} height={20} className="rounded-full" />
+            <Image key={techonology._id} loader={() => `${urlFor(techonology.image).url()}?`} src={urlFor(techonology.image).url()} unoptimized={true} 
+            alt="" width={20} height={20} className="rounded-full" />
           ))}
         </div>
         <p className='uppercase py-1 text-gray-300 text-sm'>{new Date(experience.dateStarted).toDateString()} - {" "}

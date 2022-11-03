@@ -22,7 +22,7 @@ export default function Hero({ pageInfo }: Props) {
     return (
         <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
             <BackgroundCircles />
-            <Image loader={() => src} src={src} alt="Picture of the author"
+            <Image loader={() => src} src={src} alt="Picture of the author" unoptimized={true}
                 width={200} height={200} className="w-56 h-56 relative rounded-full mx-auto object-cover" />
 
             {/* <Image src='/assets/img/photo_profile.jpg' alt="Picture of the author"
